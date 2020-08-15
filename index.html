@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #app li > span.done {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="message" />
+
+      <button v-on:click="add">追加</button>
+
+      <ul>
+        <li v-for="(todo,index) in todos">
+          <input type="checkbox" v-model="todo.isDone" />
+          <span v-bind:class="{done:todo.isDone}">{{todo.item}}</span>
+
+          <button v-on:click="deleteTodo(index)">削除</button>
+        </li>
+      </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

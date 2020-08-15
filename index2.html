@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .palette {
+        width: 255px;
+        height: 255px;
+        background-color: skyblue;
+      }
+
+      .mini-palette {
+        min-width: 60px;
+        height: 60px;
+      }
+
+      .colors-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        padding-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- パレットを表示&mousemoveのmethodsを追加 -->
+
+      <div
+        class="palette"
+        v-on:mousemove="changecolor"
+        v-bind:style="paletteStyle"
+      ></div>
+
+      <!-- rgbaの値を書いたPタグを作る -->
+      <p>rgba={{red}},{{green}},100,0.5</p>
+
+      <!-- ミニパレットを表示するためのdivタグを作る -->
+      <div class="colors-container">
+        <div class="mini-palette"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index2.js"></script>
+  </body>
+</html>
